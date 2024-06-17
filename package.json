@@ -1,0 +1,16 @@
+{
+  "name": "utube--backend",
+  "version": "1.0.0",
+  "description": "Complete backend of Youtube integrated with twitter and more functionalities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "backend",
+    "nodejs"
+  ],
+  "author": "Diwakar Tiwari",
+  "license": "ISC"
+}
