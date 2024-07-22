@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
     {
         username:{
             type:String,
@@ -79,6 +79,7 @@ userSchema.methods.generateAccessToken = function (){
         }
     )
 }
+
 userSchema.methods.generateRefreshToken = function (){
     return jwt.sign(
         {
