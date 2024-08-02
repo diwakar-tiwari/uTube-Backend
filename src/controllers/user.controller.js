@@ -99,23 +99,26 @@ const registerUser = asyncHandler(async (req,res) =>{
 const loginUser = asyncHandler(async (req,res) =>{
     //Get data from frontend
     const {username, email, password} = req.body;
-
+    
     //check data
-    if(!username || !email){
+    if(!(username || email)){
         throw new ApiError(401, "Username or email required")
     }
-
+    
     //find user in database
     const user = await User.findOne({
         $or: [{username}, {email}]
     })
+    
+    
 
     if(!user){
         throw new ApiError(404, "User not found")
-    }
+    }    
 
     //check password is correct or not
     const isPassValid = user.isPasswordCorrect(password);
+    // isPasswordCorrect
     if(!isPassValid){
         throw new ApiError (401, "User credential not valid")
     }
@@ -149,6 +152,7 @@ const loginUser = asyncHandler(async (req,res) =>{
 
 })
 
+//Logout user
 const logOut = asyncHandler(async(req,res) =>{
         await User.findByIdAndUpdate(
             req.user._id,

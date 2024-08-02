@@ -20,5 +20,6 @@ import userRoute from './routes/user.route.js'
 //Route Declaration
 app.use("/api/v1/users", userRoute)
 
+
 app.use(cookieParser())
 export {app}
